@@ -1,0 +1,11 @@
+Hello, this is my portfolio project using Playwright to automate QA testing for a variety of sites.
+
+This project demonstrates the capabilities of Playwright in performing end-to-end testing, including:
+- Cross-browser testing
+- Responsive design testing
+- Performance testing
+
+I will use one of my own websites I created for this project, using a simple HTML/CSS/JS stack, hosted on GitHub Pages.
+
+URLs:
+- https://example.com
