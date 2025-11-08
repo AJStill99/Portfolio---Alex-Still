@@ -6,7 +6,7 @@ const test = base.extend({
         console.log('Starting test...');
         await use();
         console.log('Test finished.');
-    }
+    },
 });
 
 module.exports = { test };

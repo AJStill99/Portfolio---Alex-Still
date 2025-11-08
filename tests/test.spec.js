@@ -1,16 +1,40 @@
-const { test, expect } = require('@playwright/test');
+const { test } = require('../fixtures'); // Import the custom test with fixtures
+const { expect } = require('@playwright/test'); // Import expect for assertions
 
 // Need to set the base URL in the config file for these tests to work
 
 test.describe('Example page tests', () => {
     test('Check URL and title', async ({ page }) => {
-        await page.goto('/example-page');
+        await page.goto('/example-domains');
+        await expect(page).toHaveURL('https://example.com/example-domains');
+        await expect(page).toHaveTitle('Example Domains');
+        // Is there a way to make this dynamic rather than hardcoding?
     });
 
-    test('Check for specific text on the page', async ({ page }) => {
+    test('Check for heading text on the page', async ({ page, logToConsole }) => {
         await page.goto('/');
         // Goes to the baseURL set in playwright.config.js
-        const content = await page.textContent('body');
-        expect(content).toContain('This is an example page');
+        // Can go to specific paths like '/example-page' as well
     });
+
+    test('Check if heading text is correct', async ({ page }) => {
+        page.goto('/');
+        const headerText = await page.textContent('h1');
+        if(headerText !== 'Example Domains') {
+            throw new Error(`Expected header text to be 'Example Domains' but got '${headerText}'`);
+        }
+
+        await expect(headerText).toBe('Example Domains');
+    });
+
+    test('Go to example-domains page', async ({ page }) => {
+        await page.goto('/example-domains');
+        await page.click('text=Learn more');
+        // await page.click('a[href="https://www.iana.org/domains/example"]');
+        // await expect(page).toHaveURL('http://www.iana.org/help/example-domains');
+        await expect(page).toHaveURL(/iana\.org\/help\/example-domains/);
+
+    });
+
+    // this keeps fucking failing and no idea why, pissing me off 
 });
