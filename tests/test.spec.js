@@ -27,13 +27,11 @@ test.describe('Example page tests', () => {
         await expect(headerText).toBe('Example Domains');
     });
 
-    test('Go to example-domains page', async ({ page }) => {
-        await page.goto('/example-domains');
-        await page.click('text=Learn more');
-        // await page.click('a[href="https://www.iana.org/domains/example"]');
-        // await expect(page).toHaveURL('http://www.iana.org/help/example-domains');
-        await expect(page).toHaveURL(/iana\.org\/help\/example-domains/);
-
+    test('Navigate from home to a product page', async ({ page }) => {
+        // Go to Base URL, navigate to products page, and ensure URL contains sub string
+        await page.goto('/');
+        await page.click('a[href="/collections/all"]');
+        await expect(page).toHaveURL(/\/collections\/all/);
     });
 
     // this keeps fucking failing and no idea why, pissing me off 
