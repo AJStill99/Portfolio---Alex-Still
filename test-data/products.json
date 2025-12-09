@@ -1,0 +1,44 @@
+{
+  "black_heels": {
+    "id": 101,
+    "name": "Black heels",
+    "price": 45.00,
+    "inStock": true
+  },
+  "bronze_sandals": {
+    "id": 102,
+    "name": "Bronze sandals",
+    "price": 39.99,
+    "inStock": true
+  },
+  "brown_shades": {
+    "id": 103,
+    "name": "Brown Shades",
+    "price": 20.00,
+    "inStock": false
+  },
+  "grey_jacket": {
+    "id": 104,
+    "name": "Grey jacket",
+    "price": 55.00,
+    "inStock": true
+  },
+  "noir_jacket": {
+    "id": 105,
+    "name": "Noir jacket",
+    "price": 60.00,
+    "inStock": true
+  },
+  "striped_top": {
+    "id": 106,
+    "name": "Striped top",
+    "price": 50.00,
+    "inStock": true
+  },
+  "white_sandals": {
+    "id": 107,
+    "name": "White sandals",
+    "price": 25.00,
+    "inStock": true
+  }
+}

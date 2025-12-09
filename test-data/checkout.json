@@ -1,0 +1,15 @@
+{
+  "standard_user_checkout": {
+    "user": "standard_user",
+    "items": [
+      { "product": "black_heels", "qty": 1 },
+      { "product": "white_sandals", "qty": 2 }
+    ]
+  },
+  "locked_out_user_checkout": {
+    "user": "locked_out_user",
+    "items": [
+      { "product": "bronze_sandals", "qty": 1 }
+    ]
+  }
+}

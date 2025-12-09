@@ -1,0 +1,14 @@
+{
+  "not_found": {
+    "code": 404,
+    "message": "Product not found"
+  },
+  "unauthorized": {
+    "code": 401,
+    "message": "Unauthorized access"
+  },
+  "invalid_credentials": {
+    "code": 403,
+    "message": "Invalid username or password"
+  }
+}

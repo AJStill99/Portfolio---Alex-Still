@@ -11,6 +11,7 @@ test.describe('Filling in customer data during checkout', () => {
         await page.locator('#cart-target-desktop').waitFor({ state: 'visible', timeout: 5000 });
         await expect(page.locator('#cart-target-desktop')).toHaveText(/\(\d+\)/); // Check for at least 1 item in cart, rather than hardcoding 1
         // This is make sure the animation has finished before clicking checkout
+        // This is a regular expression to match text, not a literal string. d+ means one or more digits between the brackets
 
         await page.locator('.checkout').waitFor({ state: 'attached', timeout: 5000 });
         await page.locator('.checkout').click();
