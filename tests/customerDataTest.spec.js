@@ -8,20 +8,29 @@ test.describe('Filling in customer data during checkout', () => {
         await page.goto('/');
         await page.locator('text=Grey jacket').click();
         await page.locator('.add-to-cart').click();
+
+
         await page.locator('#cart-target-desktop').waitFor({ state: 'visible', timeout: 5000 });
         await expect(page.locator('#cart-target-desktop')).toHaveText(/\(\d+\)/); // Check for at least 1 item in cart, rather than hardcoding 1
         // This is make sure the animation has finished before clicking checkout
         // This is a regular expression to match text, not a literal string. d+ means one or more digits between the brackets
 
-        await page.locator('.checkout').waitFor({ state: 'attached', timeout: 5000 });
-        await page.locator('.checkout').click();
+        await page.waitForTimeout(4000); // 4s pause to allow any animations to complete, as this was causing a LOT of issues
+
+        await page.goto('/cart');
         await expect(page).toHaveURL(/cart/);
-        await page.locator('#checkout').click();
 
-        // await fillCustomerDetails(page, customerData.validUser);
-        // This is failing it right now, might need to fix this helper
+        const checkoutButtonID = page.locator('#checkout');
+        await checkoutButtonID.waitFor({ state: 'visible', timeout: 5000 });
 
-        // TODO : Change this to bypass dodgy animation by clicking check out next to my cart instead
+        await Promise.all([
+            page.waitForURL(/checkout/i),  // wait for matching /cart
+            checkoutButtonID.click()
+        ]);
+
+        await expect(page).toHaveURL(/checkout/i);
+
+        // Might need to go over this again, ran into a LOT of issues here
     });
 
     test('Cart assertions', async ({ page }) => {
