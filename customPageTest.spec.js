@@ -1,4 +1,4 @@
-const { test } = require('../fixtures'); // Import the custom test with fixtures
+const { test } = require('./fixtures'); // Import the custom test with fixtures
 const { expect } = require('@playwright/test'); // Import expect for assertions
 
 test.describe('Running tests on custom HTML page written by myself with some CSS and JavaScript', () => {
@@ -17,3 +17,5 @@ test.describe('Running tests on custom HTML page written by myself with some CSS
         console.log(`Header text found: ${headerText}`);
     });
 });
+
+// NOTE - Have outside test scope for now, as these tests are skipped
