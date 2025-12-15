@@ -16,6 +16,7 @@ const test = base.extend({
     testData: async ({}, use) => {
         await use({ users, products, checkoutInfo, errors });
     }
+    // Call this in tests the same way logToConsole would be called
 });
 
 module.exports = { test };

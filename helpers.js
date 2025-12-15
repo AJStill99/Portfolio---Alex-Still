@@ -53,6 +53,7 @@ async function getElement(page, elementID) {
     await page.locator(elementID);
 }
 
+// NOTE - this function will not work until you have valid login credentials
 async function loginPage(page, userKey = 'standard_user') {
     // Default to standard_user_checkout if no userKey is provided
     // Makes this function more fullproof
