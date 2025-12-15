@@ -58,10 +58,11 @@ async function loginPage(page, userKey = 'standard_user') {
     // Makes this function more fullproof
     const user = users[userKey];
 
-    await page.goto('/login');
-    await page.fill('#user-name', user.username);
-    await page.fill('#password', user.password);
-    await page.click('#login-button');
+    await page.goto('/account/login');
+    await page.fill('#customer_email', user.username);
+    await page.fill('#customer_password', user.password);
+    await page.click('input[type="submit"][value="Sign In"]');
+    // Need to find a valid email and password for this
 }
 
 async function checkForSuccessElement(page, successElement, failureElement) {
