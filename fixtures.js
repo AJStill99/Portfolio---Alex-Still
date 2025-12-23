@@ -4,6 +4,7 @@ const users = require('./test-data/users.json');
 const products = require('./test-data/products.json');
 const checkoutInfo = require('./test-data/checkout.json');
 const errors = require('./test-data/errors.json');
+const routes = require('./test-data/routes.js');
 
 const test = base.extend({
     // Define fixtures here if needed
@@ -15,8 +16,27 @@ const test = base.extend({
     // Logs to the console before and after each test -- similar to how a beforeEach and afterEach would work
     testData: async ({}, use) => {
         await use({ users, products, checkoutInfo, errors });
-    }
+    },
     // Call this in tests the same way logToConsole would be called
+
+    goToURL: async ({ page }, use) => {
+        await use(async (route) => {
+            const path = routes[route];
+
+            if (path === undefined) {
+                throw new Error(`Route "${route}" is not defined in routes.js`);
+            }
+
+            await page.goto(`/${path}`);
+        });
+    },
+
+    checkURL: async ({ page }, use) => {
+        await use(async (expectedURL) => {
+            const currentURL = page.url();
+            return currentURL.includes(expectedURL);
+        });
+    }
 });
 
 module.exports = { test };
