@@ -5,8 +5,14 @@
     "password": "secret_sauce",
     "role": "customer"
   },
-  "locked_out_user": {
+  "invalid_user": {
     "id": 2,
+    "username": "invalid_user",
+    "password": "wrong_password",
+    "role": "customer"
+  },
+  "locked_out_user": {
+    "id": 3,
     "username": "locked_out_user",
     "password": "secret_sauce",
     "role": "customer"

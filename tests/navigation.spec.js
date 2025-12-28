@@ -27,3 +27,5 @@ test.describe('Navigation tests', () => {
 });
 
 // This is a very simple test, but I wanted to demonstrate navigation using the routes defined in test-data/routes.js
+// This COULD be important in a real project where URLs might change, so having a single source of truth is beneficial.
+// Would imagine this would run in CI/CD pipeline to ensure all main pages are reachable.
