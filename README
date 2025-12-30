@@ -1,30 +1,65 @@
-Hello, this is my portfolio project using Playwright to automate QA testing for a variety of sites.
+# Alex Still - Playwright QA Automation Portfolio
 
-This project demonstrates the capabilities of Playwright in performing end-to-end testing, including:
-- Cross-browser testing
-- Responsive design testing
-- Performance testing
+This repository contains a QA automation portfolio project built using **Playwright**.  
+It demonstrates practical, real-world end-to-end testing against a live e-commerce site.
+This project intentionally avoids over-engineering in favour of clarity and maintainability.
+The tests are run against a live e-commerce site, Sauce Demo, to simulate real-world e-commerce scenarios.
 
-In preparation, I have created some test data; including users, checkout data, errors, and products. This is in an aid to make the code more manageable to simulate real tests a little better. 
+The focus of this project is on **test structure, reliability, and maintainability**, rather than exhaustive feature coverage.
 
-YML File - Only runs on main currently, but opens a brand new machine, installs what needs to be installed and runs whenever I push to main or on a pull request.
+## Tech Stack
+- **Playwright**
+- **JavaScript (Node.js)**
+- **Playwright Test Runner**
+- **GitHub Actions (CI)**
 
-I will use one of my own websites I created for this project, using a simple HTML/CSS/JS stack, which will eventually be hosted somewhere (maybe GitHub pages)
+## Project Goals
+- Demonstrate modern QA automation practices
+- Apply the Page Object Model and helper abstractions
+- Cover both positive and negative test scenarios
+- Keep tests readable, maintainable, and easy to extend
 
-Tests used here: 
-- Auth
-- Cart
-- Checkout + Checkout-validation (failing case)
-- Navigation
+## Test Coverage
+The project includes the following test suites:
+
+- **Auth** – login and authentication scenarios  
+- **Cart** – add/remove products and cart validation  
+- **Checkout** – happy path checkout flow  
+- **Checkout Validation** – form validation and error handling  
+- **Navigation** – site navigation and routing  
+- **Products** – product listing and product detail checks  
+- **Smoke** – critical path tests to verify site availability  
+
+## Test Data
+Reusable test data is stored separately to keep tests clean and realistic:
+- Users
 - Products
-- Smoke
+- Checkout details
+- Error messages
 
-URLs:
-- baseURL: https://sauce-demo.myshopify.com/
+## Environment
+- **Base URL:** https://sauce-demo.myshopify.com/
 
-Documentation: 
+## Running the Tests
+
+**Install dependencies**  
+`npm install` – Installs project packages
+
+**Install Playwright browsers**  
+`npx playwright install` – Sets up the required browsers for Playwright
+
+**Run all tests**  
+`npx playwright test` – Executes all test suites in headless mode
+
+**Run tests in UI mode**  
+`npx playwright test --ui` – Opens the Playwright Test Runner UI for interactive test execution
+
+**Show HTML report**  
+`npx playwright show-report` – Opens the HTML test report in your default browser
+
+
+## Documentation
 
 - [Test Strategy](docs/test-strategy.md)
 - [Exploratory Test Report](docs/exploratory-testing-report.md)
-
 
