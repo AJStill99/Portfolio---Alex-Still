@@ -16,13 +16,20 @@ test.describe('Smoke tests', () => {
 
   });
 
-  // BUG - fix this
   test('Can add product to cart', async ({ page }) => {
     await goToBaseURL(page);
     await clickProduct(page, 'grey_jacket');
     await page.locator('#add').click();
+
     await goToCart(page);
-    await expect(page.locator('text=Grey Jacket')).toBeVisible();
+
+    const cartCount = page.locator('#cart-target-desktop');
+    await cartCount.waitFor(); // Wait for the cart count to update
+    await expect(cartCount).toHaveText(/1/); // Sub string check for 1 item in cart
+
+    await expect(page.locator('h1', { hasText: 'Grey jacket' })).toBeVisible(); // more specific selector
+    // await expect(page.locator('text=Grey jacket')).toBeVisible();
+    // Above line resolves to 4 items, need to narrow down selector
   });
 
   test('Cart page loads and shows checkout button', async ({ page }) => {
@@ -33,7 +40,6 @@ test.describe('Smoke tests', () => {
     await expect(page.locator('text=Check out')).toBeVisible();
   });
 
-  // BUG - fix this
   test('Can navigate to checkout page', async ({ page }) => {
     await goToBaseURL(page);
     await clickProduct(page, 'grey_jacket');

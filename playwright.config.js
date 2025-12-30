@@ -18,7 +18,7 @@ export default defineConfig({
     expect: {
       timeout: 5000
   },
-  reporter: [['html', { open: 'always' }]],
+  reporter: [['html', { open: 'on-failure' }]],
 
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
