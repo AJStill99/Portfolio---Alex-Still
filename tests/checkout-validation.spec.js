@@ -41,6 +41,7 @@ test.describe('Checkout validation', () => {
     }
 
     expect(visibleErrors).toBe(0); // Will fail if more than 1 error is visible
+    // This is set to fail on purpose to show errors are being captured
   });
 
   test('Shows error for invalid email format', async ({ page }) => {

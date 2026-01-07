@@ -8,7 +8,7 @@ test('Product actions demo', async ({ page }) => {
   await page.goto('/collections/frontpage');
 
   const allProducts = await products.captureProducts(); // Using custom component method
-
+  
   console.log('Total products:', allProducts.length);
   expect(allProducts.length).toBeGreaterThan(0);
 

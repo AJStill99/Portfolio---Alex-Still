@@ -1,5 +1,6 @@
 const { test } = require('../fixtures'); // Import the custom test with fixtures
 const { expect } = require('@playwright/test'); // Import expect for assertions
+const Products = require('../components/products');
 
 test.describe('Checking the add to cart functionality', () => {
     test('Go to URL and check it is stable', async ({ page }) => {
@@ -11,15 +12,15 @@ test.describe('Checking the add to cart functionality', () => {
     });
 
     test('Add the first product on the page to the cart and check cart amount is correct', async ({ page }) => {
-        await page.goto('/');
+        const products = Products(page);
+        await page.goto('/collections/frontpage');
 
-        const firstProduct = page.locator('text=Grey jacket');
-        // Realitically, should be more dynamic selector, but for demo purposes this will do
-        // NOTE - Maybe use nth(0) to select first product dynamically in future
-        await firstProduct.click();
+        const allProducts = await products.captureProducts(); // Needs this line to make sure cachedProducts is populated
+        // Might be a better way to do this
 
-        const addToCartButton = page.locator('.add-to-cart');
-        await addToCartButton.click();
+        const firstProduct = products.getFirstProduct();
+        await products.addProductToCart(firstProduct);
+        console.log(`Added first product: ${firstProduct.title}`);
 
         // Seems to fail as it's checking it too fast
 
@@ -30,7 +31,7 @@ test.describe('Checking the add to cart functionality', () => {
         // NOTE - Might be better to make this number dynamic in future tests
     });
 
-    test('Go to cart and fill in customer details', async ({ page }) => {
+    test('Product to checkout flow', async ({ page }) => {
         await page.goto('/');
         await page.locator('text=Grey jacket').click();
         await page.locator('.add-to-cart').click();
