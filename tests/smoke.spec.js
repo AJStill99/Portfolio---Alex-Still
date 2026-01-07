@@ -44,6 +44,7 @@ test.describe('Smoke tests', () => {
     await goToBaseURL(page);
     await clickProduct(page, 'grey_jacket');
     await page.locator('#add').click();
+    await page.waitForTimeout(2000); // Wait for cart to update
     await goToCart(page);
     await page.locator('text=Check out').click();
     await expect(page.locator('#checkout')).toBeVisible();
