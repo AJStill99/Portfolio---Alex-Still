@@ -50,7 +50,6 @@ Reusable test data is stored separately to keep tests clean and realistic:
 
 **Run all tests**  
 `npx playwright test` – Executes all test suites in headless mode
-Note: test in checkout-validation.spec.js will fail on purpose to chowcase useful logging and error handling in a test failure case
 
 **Run tests in UI mode**  
 `npx playwright test --ui` – Opens the Playwright Test Runner UI for interactive test execution
