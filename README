@@ -1,5 +1,7 @@
 # Alex Still - Playwright QA Automation Portfolio
 
+[![Release](https://img.shields.io/github/v/release/alexstill/playwright-qa-portfolio?style=flat-square)](https://github.com/alexstill/playwright-qa-portfolio/releases)
+
 This repository contains a QA automation portfolio project built using **Playwright**.  
 It demonstrates practical, real-world end-to-end testing against a live e-commerce site.
 This project intentionally avoids over-engineering in favour of clarity and maintainability.
