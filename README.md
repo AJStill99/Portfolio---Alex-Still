@@ -65,3 +65,9 @@ Reusable test data is stored separately to keep tests clean and realistic:
 - [Test Strategy](docs/test-strategy.md)
 - [Exploratory Test Report](docs/exploratory-testing-report.md)
 
+## SQL Project
+
+**Repository**: [SQL Project](https://github.com/AJStill99/alex-still-SQL-portfolio)
+
+- Using sqlite and DB Browser to visualise the database itself and run the queries included in this project
+
